@@ -46,6 +46,17 @@
                 <span class="value">{{ getCurrentValue(sensor.data.values) }}</span>
                 <span class="unit">µg/m³</span>
               </div>
+              
+              <!-- Add sparkline chart -->
+              <div class="sparkline-section">
+                <SparklineChart 
+                  :data="sensor.data.values" 
+                  :color="getColorForParam(sensor.param.paramCode)"
+                  :width="140"
+                  :height="35"
+                />
+              </div>
+              
               <div class="last-update">
                 Ostatni pomiar: {{ formatDate(getLastMeasurementDate(sensor.data.values)) }}
               </div>
@@ -57,15 +68,34 @@
           </div>
         </div>
       </div>
+      
+      <div class="charts-section">
+        <h3>Wykresy historyczne</h3>
+        <div class="charts-container">
+          <HistoricalChart
+            v-for="sensor in sensorsWithData"
+            :key="`chart-${sensor.id}`"
+            :sensor-id="sensor.id"
+            :sensor-name="sensor.param.paramName"
+            :param-code="sensor.param.paramCode"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import HistoricalChart from './HistoricalChart.vue'
+import SparklineChart from './SparklineChart.vue'
 
 export default {
   name: 'StationDetails',
+  components: {
+    HistoricalChart,
+    SparklineChart
+  },
   props: ['id'],
   data() {
     return {
@@ -155,6 +185,21 @@ export default {
       return 'unknown'
     },
     
+    getColorForParam(paramCode) {
+      // Same color scheme as HistoricalChart
+      const colors = {
+        'PM10': '#FF6B6B',
+        'PM2.5': '#4ECDC4',
+        'NO2': '#45B7D1',
+        'SO2': '#96CEB4',
+        'O3': '#2d3436',
+        'CO': '#DDA0DD',
+        'NO': '#8E44AD',
+        'NOx': '#16A085'
+      }
+      return colors[paramCode] || '#667eea'
+    },
+    
     goBack() {
       this.$router.push('/')
     }
@@ -242,6 +287,21 @@ export default {
   margin-bottom: 1.5rem;
 }
 
+.charts-section {
+  margin-top: 3rem;
+}
+
+.charts-section h3 {
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.charts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .sensors-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -284,6 +344,14 @@ export default {
 .unit {
   color: #666;
   font-size: 1rem;
+}
+
+.sparkline-section {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
 }
 
 .last-update {

@@ -1,0 +1,17 @@
+meta {
+  name: getAutomaticAndManualStation
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/pjp-api/v1/rest/station/findAll
+  body: none
+  auth: none
+}
+
+params:query {
+  ~page: 
+  ~size: 
+  ~sort: 
+}

@@ -1,0 +1,24 @@
+meta {
+  name: getArchivalDataBySensor
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/pjp-api/v1/rest/archivalData/getDataBySensor/:idSensor
+  body: none
+  auth: none
+}
+
+params:query {
+  ~page: 
+  ~size: 
+  ~sort: 
+  ~dateFrom: 
+  ~dateTo: 
+  ~dayNumber: 
+}
+
+params:path {
+  idSensor: 
+}

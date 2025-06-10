@@ -1,0 +1,21 @@
+meta {
+  name: getAutomaticAndManualSensors
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/pjp-api/v1/rest/station/sensors/:stationId
+  body: none
+  auth: none
+}
+
+params:query {
+  ~page: 
+  ~size: 
+  ~sort: 
+}
+
+params:path {
+  stationId: 
+}

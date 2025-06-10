@@ -1,0 +1,19 @@
+meta {
+  name: getStationMetadata
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/pjp-api/v1/rest/metadata/stations
+  body: none
+  auth: none
+}
+
+params:query {
+  ~page: 
+  ~size: 
+  ~sort: 
+  ~filter[miejscowosc]: 
+  ~filter[kod-stacji]: 
+}

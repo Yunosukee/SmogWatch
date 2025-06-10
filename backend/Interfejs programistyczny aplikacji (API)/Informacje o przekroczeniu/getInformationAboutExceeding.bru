@@ -1,0 +1,18 @@
+meta {
+  name: getInformationAboutExceeding
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/pjp-api/v1/rest/levels/getInformationAboutExceeding
+  body: none
+  auth: none
+}
+
+params:query {
+  ~page: 
+  ~size: 
+  ~sort: 
+  ~filter[wojewodztwo]: 
+}

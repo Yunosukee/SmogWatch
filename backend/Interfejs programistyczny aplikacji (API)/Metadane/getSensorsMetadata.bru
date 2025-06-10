@@ -1,0 +1,19 @@
+meta {
+  name: getSensorsMetadata
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/pjp-api/v1/rest/metadata/sensors
+  body: none
+  auth: none
+}
+
+params:query {
+  ~page: 
+  ~size: 
+  ~sort: 
+  ~filter[typ-pomiaru]: 
+  ~filter[kod-stacji]: 
+}

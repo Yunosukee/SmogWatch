@@ -1,0 +1,20 @@
+meta {
+  name: getDataForAllStationsByYearAndVoivodeship
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/pjp-api/v1/rest/archivalData/getDataForAllStationsByYearAndVoivodeship
+  body: none
+  auth: none
+}
+
+params:query {
+  year: 
+  voivodeship: 
+  ~page: 
+  ~size: 
+  ~sort: 
+  ~pollution: 
+}

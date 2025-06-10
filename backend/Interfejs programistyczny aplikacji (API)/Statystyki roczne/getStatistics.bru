@@ -1,0 +1,19 @@
+meta {
+  name: getStatistics
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/pjp-api/v1/rest/statistics/getStatisticsForPollutants
+  body: none
+  auth: none
+}
+
+params:query {
+  indicator: 
+  ~page: 
+  ~size: 
+  ~sort: 
+  ~filter[wojewodztwo]: 
+}

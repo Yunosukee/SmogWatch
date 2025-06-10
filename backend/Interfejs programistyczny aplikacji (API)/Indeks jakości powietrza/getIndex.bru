@@ -1,0 +1,21 @@
+meta {
+  name: getIndex
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/pjp-api/v1/rest/aqindex/getIndex/:stationId
+  body: none
+  auth: none
+}
+
+params:query {
+  ~page: 
+  ~size: 
+  ~sort: 
+}
+
+params:path {
+  stationId: 
+}

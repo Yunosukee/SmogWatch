@@ -1,0 +1,20 @@
+meta {
+  name: getArchivalDataForAllStations
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/pjp-api/v1/rest/archivalData/getDataForAllStations
+  body: none
+  auth: none
+}
+
+params:query {
+  ~page: 
+  ~size: 
+  ~sort: 
+  ~dateFrom: 
+  ~dateTo: 
+  ~dayNumber: 
+}

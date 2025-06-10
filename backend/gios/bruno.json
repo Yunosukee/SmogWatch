@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "gios",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

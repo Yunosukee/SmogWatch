@@ -1,0 +1,19 @@
+meta {
+  name: getAggregatePm10Data
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/pjp-api/v1/rest/aggregate/getAggregatePm10Data
+  body: none
+  auth: none
+}
+
+params:query {
+  ~page: 
+  ~size: 
+  ~sort: 
+  ~filter[powiat]: 
+  ~filter[wojewodztwo]: 
+}
