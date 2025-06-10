@@ -8,8 +8,9 @@ services:
     environment:
       - FLASK_ENV=production
       - PYTHONUNBUFFERED=1
-    ports:
-      - "5000:5000"
+    # Remove external port exposure - only accessible via nginx proxy
+    expose:
+      - "5000"
     networks:
       - smogwatch-network
     healthcheck:

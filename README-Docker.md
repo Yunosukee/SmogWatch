@@ -1,4 +1,6 @@
-# SmogWatch Production Deployment
+# SmogWatch 2. **Access the application:**
+   - **Frontend:** http://localhost
+   - **Backend API:** http://localhost/api (proxied through nginx)duction Deployment
 
 This directory contains the production Docker configuration for the SmogWatch application.
 
@@ -136,8 +138,9 @@ docker compose top
    ```
 
 3. **API connection issues:**
-   - Verify backend is healthy: `curl http://localhost:5000/`
+   - Verify backend is healthy via nginx proxy: `curl http://localhost/api/`
    - Check Nginx proxy configuration in `frontend/nginx.conf`
+   - Backend is not directly accessible from outside the container network
 
 ### Debug Mode
 

@@ -25,9 +25,6 @@ COPY --from=build /app/dist /usr/share/nginx/html
 # Copy custom Nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Create writable directory for nginx pid
-RUN mkdir -p /var/run/nginx && chown -R nginx:nginx /var/run/nginx
-
 # Expose port
 EXPOSE 80
 

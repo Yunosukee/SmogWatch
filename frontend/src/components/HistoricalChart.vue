@@ -163,7 +163,7 @@ export default {
         this.hasLoadedOnce = true
         
         const response = await axios.get(
-          `http://localhost:5000/api/sensor/${this.sensorId}/historical?days=${this.selectedPeriod}`
+          `/api/sensor/${this.sensorId}/historical?days=${this.selectedPeriod}`
         )
         
         this.historicalData = response.data

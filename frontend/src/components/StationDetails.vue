@@ -115,13 +115,13 @@ export default {
       try {
         this.loading = true
         
-        const stationsResponse = await axios.get('http://localhost:5000/api/stations')
+        const stationsResponse = await axios.get('/api/stations')
         this.stationInfo = stationsResponse.data.find(station => station.id == this.id) || {}
         
-        const sensorsResponse = await axios.get(`http://localhost:5000/api/station/${this.id}/sensors`)
+        const sensorsResponse = await axios.get(`/api/station/${this.id}/sensors`)
         this.sensors = sensorsResponse.data
         
-        const airQualityResponse = await axios.get(`http://localhost:5000/api/station/${this.id}/air-quality`)
+        const airQualityResponse = await axios.get(`/api/station/${this.id}/air-quality`)
         this.airQualityIndex = airQualityResponse.data
         
         await this.fetchSensorsData()
@@ -139,7 +139,7 @@ export default {
       
       for (const sensor of this.sensors) {
         try {
-          const dataResponse = await axios.get(`http://localhost:5000/api/sensor/${sensor.id}/data`)
+          const dataResponse = await axios.get(`/api/sensor/${sensor.id}/data`)
           sensorsWithData.push({
             ...sensor,
             data: dataResponse.data

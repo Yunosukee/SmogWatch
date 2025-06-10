@@ -67,7 +67,7 @@ export default {
     async fetchStations() {
       try {
         this.loading = true
-        const response = await axios.get('http://localhost:5000/api/stations')
+        const response = await axios.get('/api/stations')
         this.stations = response.data
       } catch (error) {
         this.error = 'Nie udało się pobrać listy stacji'
