@@ -26,10 +26,10 @@ header-includes:
 
 Projekt SmogWatch został zrealizowany przez zespół 2-osobowy:
 
-| Członek zespołu | Rola w projekcie | Główne odpowiedzialności       |
-| --------------- | ---------------- | ------------------------------ |
-| Łukasz Domagała | Backend          | Backend Flask, API integration |
-| Igor Barcik     | Frontend         | Vue.js, UI/UX design           |
+| Członek zespołu        | Rola w projekcie | Główne odpowiedzialności       |
+| ---------------------- | ---------------- | ------------------------------ |
+| Łukasz Domagała 131971 | Backend          | Backend Flask, API integration |
+| Igor Barcik 131780     | Frontend         | Vue.js, UI/UX design           |
 
 # 2. Opis tematyki projektu
 
@@ -65,6 +65,7 @@ Projekt został zrealizowany w architekturze klient-serwer z następującymi kom
 ## Frontend (Vue.js)
 
 - **Single Page Application** - Nowoczesny interfejs użytkownika
+- **Logowanie i autoryzacja** - OIDC do uwierzytelniania użytkowników (Authentik + postgres)
 - **Responsywny design** - Dostosowanie do różnych urządzeń
 - **Komponenty wielokrotnego użytku** - StationsList, StationDetails
 - **Asynchroniczna komunikacja** - Z backendem poprzez Axios
@@ -93,6 +94,7 @@ requests==2.31.0      # HTTP client do komunikacji z API
 vue: "^3.3.4"         # Progressive JavaScript framework
 vue-router: "^4.2.4"  # Routing dla SPA
 axios: "^1.5.0"       # HTTP client
+oidc-client-ts: "^3.0.1"  # OpenID Connect client
 ```
 
 ## Realizacja zadań
